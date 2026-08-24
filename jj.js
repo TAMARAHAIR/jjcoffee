@@ -1,74 +1,15 @@
-// ==============================
-// MOBILE NAVIGATION
-// ==============================
-
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
-
-menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-});
-
-// Close mobile menu after clicking a link
-document.querySelectorAll(".nav-links a").forEach((link) => {
-    link.addEventListener("click", () => {
-        navLinks.classList.remove("active");
-    });
-});
-
-
-// ==============================
-// ORDER BUTTONS
-// ==============================
-
-const orderButtons = document.querySelectorAll(".order-btn");
-
-orderButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-
-        const item = button.getAttribute("data-item");
-
-        alert(
-            `Great choice! ☕\n\nYou selected: ${item}\n\nThank you for ordering from Jesse's Coffee Shop!`
-        );
-    });
-});
-
-
-// ==============================
-// CONTACT FORM
-// ==============================
-
-const contactForm = document.getElementById("contactForm");
-const formMessage = document.getElementById("formMessage");
-
-contactForm.addEventListener("submit", (event) => {
-
-    event.preventDefault();
-
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const message = document.getElementById("message").value.trim();
-
-    if (!name || !email || !message) {
-        formMessage.textContent = "Please complete all fields.";
-        return;
-    }
-
-    formMessage.textContent =
-        `Thank you, ${name}! Your message has been received. ☕`;
-
-    contactForm.reset();
-});
-
-// =========================
-// SHOPPING CART
-// =========================
+/* =================================
+   JESSE'S COFFEE HOUSE
+   JAVASCRIPT
+================================= */
 
 let cart = [];
 
 
-// Add item to cart
+/* =================================
+   ADD ITEM TO CART
+================================= */
+
 function addToCart(name, price) {
 
     const existingItem = cart.find(item => item.name === name);
@@ -85,57 +26,132 @@ function addToCart(name, price) {
 
     updateCart();
 
-    alert(`${name} has been added to your order!`);
+    alert(name + " has been added to your order!");
 }
 
 
-// Update cart
+/* =================================
+   UPDATE CART
+================================= */
+
 function updateCart() {
 
-    const cartItems = document.getElementById("cart-items");
+    const cartContainer = document.getElementById("cart-items");
     const cartCount = document.getElementById("cart-count");
     const cartTotal = document.getElementById("cart-total");
 
-    cartItems.innerHTML = "";
+    cartContainer.innerHTML = "";
 
     let total = 0;
-    let count = 0;
+    let itemCount = 0;
 
-    cart.forEach((item, index) => {
+    if (cart.length === 0) {
 
-        const itemTotal = item.price * item.quantity;
+        cartContainer.innerHTML =
+            '<p class="empty-cart">Your cart is empty.</p>';
 
-        total += itemTotal;
-        count += item.quantity;
+    } else {
 
-        const div = document.createElement("div");
+        cart.forEach((item, index) => {
 
-        div.className = "cart-item";
+            const itemTotal = item.price * item.quantity;
 
-        div.innerHTML = `
-            <div>
-                <strong>${item.name}</strong>
-                <br>
-                ₦${item.price.toLocaleString()} × ${item.quantity}
-            </div>
+            total += itemTotal;
+            itemCount += item.quantity;
 
-            <button
-                class="remove-btn"
-                onclick="removeFromCart(${index})">
-                Remove
-            </button>
-        `;
+            const cartItem = document.createElement("div");
 
-        cartItems.appendChild(div);
-    });
+            cartItem.className = "cart-item";
 
-    cartCount.textContent = count;
-    cartTotal.textContent = total.toLocaleString();
+            cartItem.innerHTML = `
+
+                <div>
+                    <strong>${item.name}</strong>
+                    <br>
+                    ₦${item.price.toLocaleString()} each
+                </div>
+
+                <div class="quantity-controls">
+
+                    <button onclick="decreaseQuantity(${index})">
+                        -
+                    </button>
+
+                    <strong style="margin: 0 12px;">
+                        ${item.quantity}
+                    </strong>
+
+                    <button onclick="increaseQuantity(${index})">
+                        +
+                    </button>
+
+                    <span style="margin-left: 20px;">
+                        ₦${itemTotal.toLocaleString()}
+                    </span>
+
+                    <button
+                        onclick="removeItem(${index})"
+                        style="
+                            margin-left:15px;
+                            background:#b52b2b;
+                            border:none;
+                            color:white;
+                            padding:7px 10px;
+                            border-radius:5px;
+                            cursor:pointer;
+                        "
+                    >
+                        Remove
+                    </button>
+
+                </div>
+            `;
+
+            cartContainer.appendChild(cartItem);
+        });
+    }
+
+    cartCount.textContent = itemCount;
+    cartTotal.textContent = "₦" + total.toLocaleString();
 }
 
 
-// Remove item
-function removeFromCart(index) {
+/* =================================
+   INCREASE QUANTITY
+================================= */
+
+function increaseQuantity(index) {
+
+    cart[index].quantity++;
+
+    updateCart();
+}
+
+
+/* =================================
+   DECREASE QUANTITY
+================================= */
+
+function decreaseQuantity(index) {
+
+    if (cart[index].quantity > 1) {
+
+        cart[index].quantity--;
+
+    } else {
+
+        cart.splice(index, 1);
+    }
+
+    updateCart();
+}
+
+
+/* =================================
+   REMOVE ITEM
+================================= */
+
+function removeItem(index) {
 
     cart.splice(index, 1);
 
@@ -143,85 +159,132 @@ function removeFromCart(index) {
 }
 
 
-// Open cart
-function openCart() {
+/* =================================
+   RATING SYSTEM
+================================= */
 
-    const modal = document.getElementById("cart-modal");
+function rate(number) {
 
-    modal.style.display = "flex";
+    const buttons = document.querySelectorAll(".rating button");
 
-    updateCart();
+    buttons.forEach((button, index) => {
+
+        if (index < number) {
+            button.classList.add("active");
+        } else {
+            button.classList.remove("active");
+        }
+
+    });
+
+    document.getElementById("rating-result").textContent =
+        `You rated Jesse's Coffee House ${number}/10 ⭐`;
+
 }
 
 
-// Close cart
-function closeCart() {
+/* =================================
+   GO TO PAYMENT
+================================= */
 
-    document.getElementById("cart-modal").style.display = "none";
-}
-
-
-// Checkout
-function checkout() {
+function goToPayment() {
 
     if (cart.length === 0) {
 
-        alert("Your order is empty. Please add something first.");
+        alert("Your cart is empty. Please choose something from the menu.");
 
         return;
     }
 
-    alert(
-        "Thank you for ordering from Jesse's Coffee! ☕\n\n" +
-        "Your order has been received."
-    );
+    document.getElementById("payment").scrollIntoView({
+        behavior: "smooth"
+    });
 
-    cart = [];
-
-    updateCart();
-
-    closeCart();
 }
 
 
-// =========================
-// CONTACT FORM
-// =========================
+/* =================================
+   ORDER FORM
+================================= */
 
 document
-    .getElementById("contact-form")
+    .getElementById("order-form")
     .addEventListener("submit", function(event) {
 
         event.preventDefault();
 
-        const name = document.getElementById("name").value;
+        if (cart.length === 0) {
 
-        document.getElementById("form-message").textContent =
-            `Thanks ${name}! Your message has been received. ☕`;
+            alert(
+                "Please add at least one item to your order before submitting."
+            );
 
-        this.reset();
+            return;
+        }
+
+        const customerName =
+            document.getElementById("customer-name").value;
+
+        const reference =
+            document.getElementById("transfer-reference").value;
+
+        let orderSummary = "";
+
+        cart.forEach(item => {
+
+            orderSummary +=
+                `${item.name} x${item.quantity}\n`;
+
+        });
+
+        alert(
+            `Thank you, ${customerName}!\n\n` +
+            `Your order has been received.\n\n` +
+            `Order:\n${orderSummary}\n` +
+            `Transfer Reference: ${reference}\n\n` +
+            `Jesse's Coffee House will confirm your payment.`
+        );
+
+        cart = [];
+
+        updateCart();
+
+        document.getElementById("order-form").reset();
+
     });
 
 
-// =========================
-// MOBILE MENU
-// =========================
+/* =================================
+   MOBILE NAVIGATION
+================================= */
 
-function toggleMenu() {
+const menuToggle = document.getElementById("menu-toggle");
+const navLinks = document.querySelector(".nav-links");
 
-    const navLinks = document.querySelector(".nav-links");
+menuToggle.addEventListener("click", function() {
 
-    navLinks.classList.toggle("active");
-}
-
-
-// Close cart when clicking outside
-window.addEventListener("click", function(event) {
-
-    const modal = document.getElementById("cart-modal");
-
-    if (event.target === modal) {
-        closeCart();
-    }
+    navLinks.classList.toggle("show");
 
 });
+
+
+/* =================================
+   CLOSE MOBILE MENU AFTER CLICK
+================================= */
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", function() {
+
+        navLinks.classList.remove("show");
+
+    });
+
+});
+
+
+/* =================================
+   INITIALIZE CART
+================================= */
+
+updateCart();
