@@ -1,93 +1,88 @@
-/* =========================
-   GENERAL STYLES
-========================= */
+/* ================================
+   JESSE'S COFFEE HOUSE
+   EXTERNAL CSS
+================================ */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
     scroll-behavior: smooth;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f3dfc1;
-    color: #2b170d;
-}
-
-button {
-    cursor: pointer;
-    border: none;
-}
-
-section {
-    padding: 90px 8%;
+    font-family: "Poppins", sans-serif;
+    background: #f8eee5;
+    color: #2d1710;
+    line-height: 1.7;
 }
 
 
-/* =========================
+/* ================================
    NAVIGATION
-========================= */
+================================ */
 
 header {
     position: fixed;
-    width: 100%;
     top: 0;
-    left: 0;
+    width: 100%;
     z-index: 1000;
+    background: rgba(47, 20, 13, 0.96);
 }
 
 .navbar {
+    max-width: 1200px;
+    margin: auto;
+    padding: 18px 25px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 8%;
-    background: rgba(35, 18, 10, 0.95);
 }
 
 .logo {
     color: #fff;
-    font-size: 22px;
-    font-weight: bold;
+    font-size: 1.4rem;
+    font-weight: 700;
 }
 
 .nav-links {
     display: flex;
-    gap: 30px;
+    gap: 25px;
     list-style: none;
 }
 
 .nav-links a {
     color: white;
     text-decoration: none;
-    font-size: 15px;
-    transition: 0.3s;
+    font-weight: 500;
 }
 
 .nav-links a:hover {
-    color: #d9a066;
+    color: #dca06a;
 }
 
-.order-button,
-.main-button {
-    background: #c47b45;
+#cart-count {
+    background: #c7773c;
+    padding: 2px 8px;
+    border-radius: 20px;
+}
+
+.menu-toggle {
+    display: none;
+    border: none;
+    background: transparent;
     color: white;
-    padding: 13px 22px;
-    border-radius: 30px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.order-button:hover,
-.main-button:hover {
-    background: #8d4f2b;
-    transform: translateY(-2px);
+    font-size: 25px;
 }
 
 
-/* =========================
+/* ================================
    HERO
-========================= */
+================================ */
 
 .hero {
     min-height: 100vh;
@@ -97,10 +92,10 @@ header {
 
     background:
         linear-gradient(
-            rgba(32, 16, 8, 0.65),
-            rgba(32, 16, 8, 0.65)
+            rgba(45, 17, 10, 0.68),
+            rgba(45, 17, 10, 0.78)
         ),
-        url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1800&q=80");
+        url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1800&q=90");
 
     background-size: cover;
     background-position: center;
@@ -109,396 +104,435 @@ header {
 }
 
 .hero-content {
-    max-width: 700px;
-    padding-top: 60px;
+    max-width: 850px;
+    margin-left: 8%;
+    padding-top: 80px;
 }
 
-.welcome,
-.small-title {
-    color: #e0a66e;
-    font-weight: bold;
+.small-title,
+.section-label {
+    color: #c7773c;
+    font-weight: 700;
     letter-spacing: 3px;
-    font-size: 13px;
-    margin-bottom: 15px;
 }
 
 .hero h1 {
-    font-size: clamp(50px, 7vw, 90px);
-    line-height: 1;
-    margin-bottom: 25px;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 1.1;
+    margin: 15px 0;
 }
 
-.hero h1 span {
-    color: #d69a62;
+.hero p {
+    max-width: 650px;
+    font-size: 1.1rem;
 }
 
-.hero p:not(.welcome) {
-    font-size: 18px;
-    line-height: 1.7;
-    max-width: 600px;
-    margin-bottom: 30px;
-}
 
-.hero-buttons {
-    display: flex;
-    gap: 15px;
-}
+/* ================================
+   BUTTONS
+================================ */
 
-.secondary-button {
-    padding: 13px 22px;
-    border-radius: 30px;
-    background: transparent;
-    border: 1px solid white;
+.btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 13px 28px;
+
+    background: #8b3f2f;
     color: white;
+
+    border: none;
+    border-radius: 30px;
+
+    text-decoration: none;
+    cursor: pointer;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #c7773c;
+    transform: translateY(-3px);
+}
+
+.secondary-btn {
+    margin-left: 10px;
+    background: transparent;
+    border: 2px solid white;
 }
 
 
-/* =========================
+/* ================================
+   SECTIONS
+================================ */
+
+.section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 100px 25px;
+}
+
+.section h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 3rem;
+    margin: 10px 0 15px;
+}
+
+.section-description {
+    margin-bottom: 35px;
+}
+
+
+/* ================================
+   ABOUT
+================================ */
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.about-text p {
+    margin-bottom: 15px;
+}
+
+
+/* ================================
    MENU
-========================= */
+================================ */
 
 .menu-section {
-    background: #f3dfc1;
-}
-
-.section-title {
     text-align: center;
-    margin-bottom: 50px;
 }
 
-.section-title p {
-    color: #a65d32;
-    font-weight: bold;
-    letter-spacing: 3px;
-}
-
-.section-title h2 {
-    font-size: 45px;
-    margin: 10px 0;
-}
-
-.section-title span {
-    color: #72594a;
-}
-
-.menu-container {
+.menu-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 25px;
+    text-align: left;
 }
 
 .menu-card {
     background: white;
     padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(65, 35, 20, 0.12);
+    border-radius: 18px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+
     transition: 0.3s;
 }
 
 .menu-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
+    box-shadow: 0 18px 35px rgba(0,0,0,0.15);
 }
 
-.coffee-icon {
-    font-size: 50px;
-    margin-bottom: 15px;
+.food-icon {
+    font-size: 45px;
 }
 
 .menu-card h3 {
-    font-size: 23px;
-    margin-bottom: 12px;
+    margin: 12px 0;
 }
 
 .menu-card p {
-    color: #72594a;
-    line-height: 1.6;
-    min-height: 80px;
+    color: #6b5147;
+    min-height: 75px;
 }
 
-.menu-bottom {
+.price {
+    display: block;
+    color: #8b3f2f;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: 15px;
+}
+
+.order-btn {
+    margin-top: 15px;
+    padding: 10px 18px;
+
+    border: none;
+    border-radius: 25px;
+
+    background: #8b3f2f;
+    color: white;
+
+    cursor: pointer;
+}
+
+.order-btn:hover {
+    background: #c7773c;
+}
+
+
+/* ================================
+   CART
+================================ */
+
+.cart-section {
+    background: #fff;
+    max-width: 1100px;
+    border-radius: 20px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.cart-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
+
+    padding: 15px;
+    margin: 10px 0;
+
+    border-bottom: 1px solid #ddd;
 }
 
-.menu-bottom strong {
-    font-size: 20px;
-    color: #8d4f2b;
-}
-
-.menu-bottom button {
-    background: #2b170d;
+.quantity-controls button {
+    border: none;
+    background: #8b3f2f;
     color: white;
-    padding: 10px 15px;
-    border-radius: 20px;
-}
 
-
-/* =========================
-   ORDER
-========================= */
-
-.order-section {
-    background: #2b170d;
-    color: white;
-}
-
-.order-box {
-    max-width: 700px;
-    margin: auto;
-    background: #3b2114;
-    padding: 35px;
-    border-radius: 20px;
-}
-
-.order-box h2 {
-    margin-bottom: 25px;
-}
-
-.order-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.15);
-}
-
-.quantity-buttons button {
-    background: #c47b45;
-    color: white;
     width: 30px;
     height: 30px;
+
     border-radius: 50%;
-    margin: 0 5px;
+    cursor: pointer;
 }
 
-.empty-order {
-    color: #c9b4a7;
-}
-
-.total {
+.cart-total {
     display: flex;
     justify-content: space-between;
-    font-size: 22px;
+
+    margin-top: 25px;
+    padding-top: 20px;
+
+    border-top: 2px solid #ddd;
+
+    font-size: 1.4rem;
+}
+
+.empty-cart {
+    padding: 20px;
+    color: #777;
+}
+
+
+/* ================================
+   RATING
+================================ */
+
+.rating-section {
+    text-align: center;
+}
+
+.rating {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px;
     margin: 25px 0;
 }
 
-.checkout-button {
-    width: 100%;
-    padding: 15px;
-    border-radius: 30px;
-    background: #d69a62;
-    color: #2b170d;
-    font-weight: bold;
-}
+.rating button {
+    border: none;
+    background: transparent;
 
+    font-size: 2rem;
+    color: #ccc;
 
-/* =========================
-   RATING
-========================= */
-
-.rating-section {
-    background: #ead0ae;
-    text-align: center;
-}
-
-.rating-container {
-    max-width: 700px;
-    margin: auto;
-}
-
-.rating-container h2 {
-    font-size: 45px;
-    margin-bottom: 15px;
-}
-
-.rating-container > p {
-    color: #72594a;
-}
-
-.stars {
-    display: flex;
-    justify-content: center;
-    gap: 4px;
-    margin: 30px 0 15px;
-    flex-wrap: wrap;
-}
-
-.stars span {
-    font-size: 40px;
-    color: #b9a89a;
     cursor: pointer;
+
     transition: 0.2s;
 }
 
-.stars span:hover {
-    color: #e2a33c;
+.rating button:hover,
+.rating button.active {
+    color: #f5a623;
     transform: scale(1.15);
 }
 
-.stars span.active {
-    color: #e2a33c;
-}
-
 #rating-result {
-    font-size: 28px;
-    color: #8d4f2b;
+    font-weight: 600;
 }
 
 
-/* =========================
-   ABOUT
-========================= */
+/* ================================
+   PAYMENT
+================================ */
 
-.about-section {
-    background: white;
+.payment-section {
+    background: #3a1d15;
+    color: white;
+    max-width: 100%;
 }
 
-.about-content {
+.payment-container {
     max-width: 1100px;
-    margin: auto;
+    margin: 40px auto 0;
 
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 70px;
-    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
 }
 
-.about-content h2 {
-    font-size: 50px;
+.bank-details {
+    background: rgba(255,255,255,0.08);
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.bank-details h3 {
     margin-bottom: 20px;
+    font-size: 1.5rem;
 }
 
-.about-content p {
-    line-height: 1.8;
-    color: #72594a;
-    margin-bottom: 25px;
+.bank-details p {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
 }
 
-.about-card {
-    padding: 40px;
-    background: #f3dfc1;
-    border-radius: 25px;
-    text-align: center;
+.payment-note {
+    margin-top: 20px;
+    padding: 15px;
+
+    background: rgba(199,119,60,0.2);
+    border-left: 4px solid #c7773c;
 }
 
-.about-card span {
-    font-size: 60px;
-}
-
-
-/* =========================
-   CONTACT
-========================= */
-
-.contact-section {
-    background: #f3dfc1;
-    text-align: center;
-}
-
-.contact-container {
-    max-width: 650px;
-    margin: auto;
-}
-
-.contact-container h2 {
-    font-size: 45px;
-    margin-bottom: 30px;
-}
-
-form {
+#order-form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
 }
 
-input,
-textarea {
-    width: 100%;
-    padding: 16px;
-    border: 1px solid #d2b99f;
-    border-radius: 10px;
-    outline: none;
-    font-size: 16px;
-    background: white;
+#order-form label {
+    margin-top: 12px;
 }
 
-textarea {
-    height: 150px;
-    resize: vertical;
+#order-form input {
+    padding: 13px;
+
+    margin-top: 5px;
+
+    border: none;
+    border-radius: 8px;
+
+    font-family: inherit;
 }
 
-#form-message {
-    margin-top: 20px;
-    color: #2e7d32;
-    font-weight: bold;
+#order-form .btn {
+    align-self: flex-start;
 }
 
 
-/* =========================
+/* ================================
+   CONTACT
+================================ */
+
+.contact {
+    text-align: center;
+}
+
+
+/* ================================
    FOOTER
-========================= */
+================================ */
 
 footer {
-    background: #1d0e08;
+    background: #24100b;
     color: white;
     text-align: center;
     padding: 45px 20px;
 }
 
-.footer-content p {
-    color: #bda99e;
-    margin-top: 10px;
+footer h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 1.7rem;
+}
+
+footer p {
+    margin-top: 8px;
+    color: #d9c4b8;
 }
 
 
-/* =========================
+/* ================================
    RESPONSIVE DESIGN
-========================= */
+================================ */
 
 @media (max-width: 900px) {
 
-    .menu-container {
+    .menu-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .about-content {
+    .about {
         grid-template-columns: 1fr;
     }
 
-    .nav-links {
-        display: none;
+    .payment-container {
+        grid-template-columns: 1fr;
     }
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
-    section {
-        padding: 70px 5%;
+    .nav-links {
+        display: none;
+
+        position: absolute;
+        top: 70px;
+        left: 0;
+
+        width: 100%;
+
+        flex-direction: column;
+        gap: 0;
+
+        background: #2f140d;
     }
 
-    .hero h1 {
-        font-size: 55px;
+    .nav-links.show {
+        display: flex;
     }
 
-    .menu-container {
+    .nav-links li {
+        padding: 15px 25px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero-content {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    .menu-grid {
         grid-template-columns: 1fr;
     }
 
-    .hero-buttons {
+    .section h2 {
+        font-size: 2.3rem;
+    }
+
+    .cart-item {
         flex-direction: column;
         align-items: flex-start;
-    }
-
-    .stars span {
-        font-size: 30px;
-    }
-
-    .section-title h2,
-    .rating-container h2,
-    .contact-container h2 {
-        font-size: 35px;
+        gap: 10px;
     }
 }
