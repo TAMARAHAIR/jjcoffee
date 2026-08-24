@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jesse Coffee</title>
+    <meta name="description" content="Jesse's Coffee Shop - Fresh coffee, delicious pastries, and a cozy atmosphere.">
+    <title>Jesse's Coffee Shop</title>
 
     <!-- External CSS -->
     <link rel="stylesheet" href="style.css">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -17,73 +15,73 @@
     <!-- Navigation -->
     <header>
         <nav class="navbar">
-            <div class="logo">JESSE<span>.</span></div>
+            <div class="logo">☕ Jesse's Coffee</div>
 
-            <ul class="nav-links">
+            <button class="menu-toggle" id="menuToggle">
+                ☰
+            </button>
+
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#menu">Menu</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-
-            <a href="#menu" class="nav-btn">Order Now</a>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <p class="small-title">WELCOME TO JESSE COFFEE</p>
+            <p class="welcome">WELCOME TO JESSE'S COFFEE SHOP</p>
 
             <h1>
                 Fresh Coffee.<br>
-                <span>Good Vibes.</span>
+                Great Moments.
             </h1>
 
-            <p class="hero-text">
-                Start your day with the perfect cup of freshly brewed coffee,
+            <p>
+                Start your day with freshly brewed coffee,
                 delicious pastries, and a warm atmosphere.
             </p>
 
             <div class="hero-buttons">
-                <a href="#menu" class="primary-btn">Explore Menu</a>
-                <a href="#about" class="secondary-btn">Learn More</a>
+                <a href="#menu" class="btn primary-btn">View Our Menu</a>
+                <a href="#contact" class="btn secondary-btn">Contact Us</a>
             </div>
         </div>
 
-        <div class="hero-image">
-            <div class="coffee-circle">
-                ☕
-            </div>
+        <div class="coffee-cup">
+            ☕
         </div>
     </section>
 
     <!-- Features -->
     <section class="features">
         <div class="feature">
-            <div class="icon">☕</div>
-            <h3>Premium Coffee</h3>
-            <p>Made from carefully selected coffee beans.</p>
+            <span>☕</span>
+            <h3>Fresh Coffee</h3>
+            <p>Freshly roasted and carefully brewed every day.</p>
         </div>
 
         <div class="feature">
-            <div class="icon">🥐</div>
+            <span>🥐</span>
             <h3>Fresh Pastries</h3>
-            <p>Freshly baked treats made every morning.</p>
+            <p>Delicious pastries baked fresh for our customers.</p>
         </div>
 
         <div class="feature">
-            <div class="icon">❤️</div>
+            <span>❤️</span>
             <h3>Made With Love</h3>
-            <p>Every cup is prepared with passion and care.</p>
+            <p>Every cup is prepared with care and passion.</p>
         </div>
     </section>
 
-    <!-- Menu -->
+    <!-- Menu Section -->
     <section class="menu-section" id="menu">
-        <div class="section-heading">
+        <div class="section-title">
             <p>OUR MENU</p>
-            <h2>Choose Your Favorite</h2>
+            <h2>Popular Drinks</h2>
         </div>
 
         <div class="menu-container">
@@ -92,71 +90,133 @@
                 <div class="menu-icon">☕</div>
                 <h3>Classic Coffee</h3>
                 <p>Rich and smooth freshly brewed coffee.</p>
-                <span>₦2,500</span>
+                <span class="price">₦2,500</span>
+                <button class="order-btn" data-item="Classic Coffee">
+                    Order Now
+                </button>
             </div>
 
-            <div class="menu-card featured">
-                <div class="popular">POPULAR</div>
+            <div class="menu-card">
                 <div class="menu-icon">🥛</div>
-                <h3>Jesse Latte</h3>
-                <p>Espresso blended with creamy steamed milk.</p>
-                <span>₦3,500</span>
+                <h3>Café Latte</h3>
+                <p>Espresso combined with creamy steamed milk.</p>
+                <span class="price">₦3,000</span>
+                <button class="order-btn" data-item="Café Latte">
+                    Order Now
+                </button>
             </div>
 
             <div class="menu-card">
                 <div class="menu-icon">🍫</div>
                 <h3>Mocha</h3>
-                <p>Chocolate, espresso, and creamy milk.</p>
-                <span>₦3,000</span>
+                <p>A delicious combination of coffee and chocolate.</p>
+                <span class="price">₦3,500</span>
+                <button class="order-btn" data-item="Mocha">
+                    Order Now
+                </button>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-icon">🧊</div>
+                <h3>Iced Coffee</h3>
+                <p>Cold, refreshing coffee perfect for hot days.</p>
+                <span class="price">₦3,000</span>
+                <button class="order-btn" data-item="Iced Coffee">
+                    Order Now
+                </button>
             </div>
 
         </div>
     </section>
 
-    <!-- About -->
+    <!-- About Section -->
     <section class="about" id="about">
         <div class="about-image">
-            <div class="coffee-art">☕</div>
+            ☕
         </div>
 
         <div class="about-content">
-            <p class="section-label">ABOUT JESSE COFFEE</p>
-            <h2>A Little Coffee.<br>A Lot of Happiness.</h2>
+            <p class="small-title">ABOUT JESSE'S COFFEE</p>
+
+            <h2>Your Daily Cup of Happiness</h2>
 
             <p>
-                Jesse Coffee is a cozy place created for coffee lovers.
-                We believe that great coffee can make an ordinary day
-                extraordinary.
+                Jesse's Coffee Shop is a cozy place where coffee lovers
+                can relax, connect, and enjoy great drinks and food.
             </p>
 
             <p>
-                Whether you're catching up with friends, working on your
-                next big idea, or simply relaxing, there's always a seat
-                waiting for you.
+                We believe that a good cup of coffee can make any day better.
+                That's why we carefully prepare every drink using quality
+                ingredients.
             </p>
 
-            <a href="#contact" class="primary-btn">Visit Us</a>
+            <a href="#contact" class="btn primary-btn">Visit Us</a>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta" id="contact">
-        <h2>Your Perfect Cup Is Waiting.</h2>
-        <p>Come in, grab a cup, and make today a little better.</p>
-        <a href="mailto:hello@jessecoffee.com" class="primary-btn">Contact Jesse</a>
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-title">
+            <p>GET IN TOUCH</p>
+            <h2>Contact Jesse's Coffee</h2>
+        </div>
+
+        <form id="contactForm">
+
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                    id="message"
+                    rows="5"
+                    placeholder="Write your message..."
+                    required
+                ></textarea>
+            </div>
+
+            <button type="submit" class="btn primary-btn">
+                Send Message
+            </button>
+
+            <p id="formMessage"></p>
+        </form>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-logo">JESSE<span>.</span></div>
-        <p>© 2026 Jesse Coffee. All Rights Reserved.</p>
+        <div class="footer-logo">☕ Jesse's Coffee</div>
 
-        <div class="socials">
-            <a href="#">Instagram</a>
-            <a href="#">Facebook</a>
-            <a href="#">Twitter</a>
-        </div>
+        <p>
+            Fresh coffee. Great moments. Good company.
+        </p>
+
+        <p class="copyright">
+            © 2026 Jesse's Coffee Shop. All Rights Reserved.
+        </p>
     </footer>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
 
 </body>
 </html>
