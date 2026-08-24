@@ -1,4 +1,7 @@
-/* General Styles */
+/* =========================
+   GENERAL STYLES
+========================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -7,12 +10,25 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f3e1c8;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f8efe3;
     color: #3e2723;
+    line-height: 1.6;
 }
 
-/* Navigation */
+a {
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
 header {
     background-color: #3e2723;
     position: sticky;
@@ -23,10 +39,12 @@ header {
 .navbar {
     max-width: 1200px;
     margin: auto;
-    padding: 20px;
+    min-height: 75px;
+    padding: 0 30px;
+
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 }
 
 .logo {
@@ -42,210 +60,416 @@ header {
 }
 
 .nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
+    color: #fff;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
 .nav-links a:hover {
     color: #d7a86e;
 }
 
-#menuBtn {
+.menu-toggle {
     display: none;
-    background: none;
     border: none;
+    background: transparent;
     color: white;
-    font-size: 25px;
-    cursor: pointer;
+    font-size: 28px;
 }
 
-/* Hero */
+/* =========================
+   HERO
+========================= */
+
 .hero {
-    min-height: 90vh;
+    min-height: 650px;
+    padding: 80px 8%;
+
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    justify-content: space-between;
 
-    background: linear-gradient(
-        rgba(62, 39, 35, 0.75),
-        rgba(62, 39, 35, 0.75)
-    ),
-    url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085")
-    center/cover;
+    background-color: #ead8c0;
 }
 
 .hero-content {
-    max-width: 700px;
-    color: white;
-    padding: 30px;
+    max-width: 650px;
 }
 
-.welcome {
-    letter-spacing: 4px;
+.welcome,
+.small-title,
+.section-title p {
+    color: #9a6b3f;
     font-size: 14px;
-    margin-bottom: 15px;
+    font-weight: bold;
+    letter-spacing: 2px;
 }
 
 .hero h1 {
-    font-size: 60px;
-    margin-bottom: 20px;
+    font-size: clamp(45px, 7vw, 80px);
+    line-height: 1.05;
+    margin: 20px 0;
+    color: #3e2723;
 }
 
-.hero p {
-    font-size: 19px;
-    line-height: 1.6;
+.hero-content > p:not(.welcome) {
+    max-width: 550px;
+    font-size: 18px;
     margin-bottom: 30px;
 }
 
-/* Buttons */
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
 .btn {
     display: inline-block;
-    padding: 14px 28px;
-    background-color: #c08457;
-    color: white;
-    text-decoration: none;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 16px;
+    padding: 13px 25px;
+    border-radius: 6px;
+    border: 2px solid #6f4e37;
+    font-weight: bold;
     transition: 0.3s;
 }
 
-.btn:hover {
-    background-color: #8d5a3b;
-    transform: translateY(-3px);
+.primary-btn {
+    background-color: #6f4e37;
+    color: white;
 }
 
-/* Menu */
-.menu {
-    padding: 80px 20px;
+.primary-btn:hover {
+    background-color: #3e2723;
+}
+
+.secondary-btn {
+    color: #6f4e37;
+}
+
+.secondary-btn:hover {
+    background-color: #6f4e37;
+    color: white;
+}
+
+.coffee-cup {
+    width: 330px;
+    height: 330px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #6f4e37;
+    border-radius: 50%;
+
+    font-size: 150px;
+    box-shadow: 0 20px 40px rgba(62, 39, 35, 0.25);
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.features {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 25px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.feature {
     text-align: center;
+    padding: 25px;
 }
 
-.menu h2,
-.about h2,
-.contact h2 {
-    font-size: 38px;
-    margin-bottom: 10px;
+.feature span {
+    font-size: 45px;
 }
 
-.section-text {
-    margin-bottom: 40px;
+.feature h3 {
+    margin: 10px 0;
+}
+
+.feature p {
+    color: #6d5a50;
+}
+
+/* =========================
+   MENU
+========================= */
+
+.menu-section {
+    padding: 90px 7%;
+    background-color: #fffaf3;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title h2 {
+    font-size: 42px;
+    margin-top: 8px;
 }
 
 .menu-container {
     max-width: 1100px;
     margin: auto;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
 }
 
-.coffee-card {
-    background-color: #fff8ed;
-    width: 300px;
-    padding: 35px 25px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+.menu-card {
+    padding: 30px 20px;
+    text-align: center;
+
+    background-color: #f8efe3;
+    border-radius: 12px;
+
+    box-shadow: 0 8px 25px rgba(62, 39, 35, 0.1);
+
     transition: 0.3s;
 }
 
-.coffee-card:hover {
-    transform: translateY(-10px);
+.menu-card:hover {
+    transform: translateY(-8px);
 }
 
-.coffee-icon {
+.menu-icon {
     font-size: 55px;
-    margin-bottom: 15px;
 }
 
-.coffee-card h3 {
-    font-size: 24px;
-    margin-bottom: 12px;
+.menu-card h3 {
+    margin: 15px 0 8px;
 }
 
-.coffee-card p {
-    line-height: 1.6;
-    margin-bottom: 20px;
+.menu-card p {
+    color: #6d5a50;
+    font-size: 14px;
 }
 
-.coffee-card span {
-    color: #9b5c32;
+.price {
+    display: block;
+    margin: 15px 0;
+    color: #6f4e37;
     font-size: 20px;
     font-weight: bold;
 }
 
-/* About */
-.about {
-    padding: 100px 20px;
+.order-btn {
+    border: none;
+    padding: 10px 18px;
+    border-radius: 5px;
+
     background-color: #6f4e37;
     color: white;
-    text-align: center;
 }
 
-.about div {
-    max-width: 700px;
+.order-btn:hover {
+    background-color: #3e2723;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    max-width: 1100px;
+    margin: auto;
+    padding: 100px 30px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 70px;
+}
+
+.about-image {
+    min-height: 400px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+    background-color: #6f4e37;
+
+    font-size: 150px;
+}
+
+.about-content h2 {
+    font-size: 45px;
+    line-height: 1.15;
+    margin: 15px 0 20px;
+}
+
+.about-content p {
+    margin-bottom: 20px;
+    color: #604e44;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact {
+    padding: 90px 20px;
+    background-color: #ead8c0;
+}
+
+#contactForm {
+    max-width: 650px;
     margin: auto;
 }
 
-.about p {
-    line-height: 1.8;
-    font-size: 18px;
-    margin: 25px 0;
+.form-group {
+    margin-bottom: 20px;
 }
 
-/* Contact */
-.contact {
-    padding: 80px 20px;
-    text-align: center;
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    font-weight: bold;
 }
 
-.contact-info {
-    margin-top: 30px;
-    line-height: 2;
-    font-size: 18px;
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px;
+
+    border: 2px solid #d3bda3;
+    border-radius: 6px;
+
+    background-color: #fffaf3;
+    color: #3e2723;
+
+    font-size: 16px;
 }
 
-/* Footer */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #6f4e37;
+}
+
+#formMessage {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
 footer {
+    padding: 40px 20px;
+    text-align: center;
+
     background-color: #3e2723;
     color: white;
-    text-align: center;
-    padding: 30px 20px;
-    line-height: 2;
 }
 
-/* Mobile */
-@media (max-width: 768px) {
+.footer-logo {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.copyright {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #d7c4b5;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 900px) {
+
+    .menu-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero {
+        text-align: center;
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .navbar {
+        position: relative;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
 
     .nav-links {
         display: none;
         position: absolute;
-        top: 70px;
+
+        top: 75px;
         left: 0;
         width: 100%;
+
+        padding: 20px;
         background-color: #3e2723;
+
         flex-direction: column;
         text-align: center;
-        padding: 20px;
+        gap: 20px;
     }
 
     .nav-links.active {
         display: flex;
     }
 
-    #menuBtn {
-        display: block;
+    .hero {
+        padding: 60px 20px;
     }
 
-    .hero h1 {
-        font-size: 40px;
+    .coffee-cup {
+        width: 230px;
+        height: 230px;
+        font-size: 100px;
     }
 
-    .hero p {
-        font-size: 16px;
+    .menu-container {
+        grid-template-columns: 1fr;
+    }
+
+    .about {
+        padding: 70px 20px;
+    }
+
+    .about-image {
+        min-height: 280px;
+        font-size: 100px;
+    }
+
+    .section-title h2 {
+        font-size: 34px;
     }
 }
