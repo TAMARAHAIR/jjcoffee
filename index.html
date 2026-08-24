@@ -6,11 +6,12 @@
 
     <title>Jesse's Coffee House</title>
 
-    <!-- External CSS -->
     <link rel="stylesheet" href="style.css">
 
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -18,321 +19,400 @@
     <!-- Navigation -->
     <header>
         <nav class="navbar">
-            <div class="logo">Jesse's ☕</div>
+
+            <div class="logo">
+                ☕ Jesse's Coffee
+            </div>
 
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#menu">Menu</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#rating">Rating</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#payment">Payment</a></li>
+                <li>
+                    <a href="#cart">
+                        Cart 🛒 <span id="cart-count">0</span>
+                    </a>
+                </li>
             </ul>
 
-            <button class="cart-button" onclick="openCart()">
-                🛒 Order <span id="cart-count">0</span>
-            </button>
+            <button class="menu-toggle" id="menu-toggle">☰</button>
+
         </nav>
     </header>
 
+
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section class="hero" id="home">
 
         <div class="hero-content">
-            <p class="small-title">WELCOME TO JESSE'S</p>
 
-            <h1>
-                Fresh Coffee.<br>
-                <span>Good Vibes.</span>
-            </h1>
+            <p class="small-title">WELCOME TO</p>
+
+            <h1>Jesse's Coffee House</h1>
 
             <p>
-                Enjoy freshly brewed coffee, delicious pastries,
-                and a relaxing atmosphere made especially for you.
+                Fresh coffee, delicious treats and a relaxing atmosphere.
+                Every cup is prepared with passion.
             </p>
 
             <div class="hero-buttons">
-                <a href="#menu" class="primary-button">View Our Menu</a>
-                <a href="#about" class="secondary-button">Learn More</a>
+                <a href="#menu" class="btn">View Menu</a>
+                <a href="#payment" class="btn secondary-btn">Order Now</a>
             </div>
+
         </div>
 
     </section>
 
 
-    <!-- Menu Section -->
-    <section id="menu" class="menu-section">
+    <!-- About -->
+    <section class="about section" id="about">
 
-        <div class="section-heading">
-            <p>OUR SPECIALS</p>
-            <h2>Jesse's Coffee Menu</h2>
-            <span>Choose your favorite drink or treat.</span>
+        <div class="about-image">
+            <img
+                src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80"
+                alt="Coffee cup">
         </div>
+
+        <div class="about-text">
+
+            <p class="section-label">ABOUT US</p>
+
+            <h2>Good Coffee. Good Moments.</h2>
+
+            <p>
+                Welcome to Jesse's Coffee House. We serve freshly prepared
+                coffee, pastries and refreshing drinks made for coffee lovers.
+            </p>
+
+            <p>
+                Whether you're working, relaxing or meeting friends,
+                Jesse's Coffee House is the perfect place to enjoy your day.
+            </p>
+
+            <a href="#menu" class="btn">Explore Our Menu</a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Menu -->
+    <section class="menu-section section" id="menu">
+
+        <p class="section-label">OUR MENU</p>
+
+        <h2>Choose Your Favourite</h2>
+
+        <p class="section-description">
+            Select an item below to add it to your order.
+        </p>
 
         <div class="menu-grid">
 
             <!-- Item 1 -->
             <div class="menu-card">
-                <div class="menu-image coffee-one">☕</div>
-
-                <div class="menu-info">
-                    <h3>Classic Cappuccino</h3>
-                    <p>Rich espresso topped with creamy steamed milk.</p>
-
-                    <div class="menu-bottom">
-                        <strong>₦3,500</strong>
-                        <button onclick="addToCart('Classic Cappuccino', 3500)">
-                            Add +
-                        </button>
-                    </div>
-                </div>
+                <div class="food-icon">☕</div>
+                <h3>Classic Cappuccino</h3>
+                <p>Rich espresso with steamed milk and creamy foam.</p>
+                <span class="price">₦3,500</span>
+                <button class="order-btn"
+                    onclick="addToCart('Classic Cappuccino', 3500)">
+                    Add to Order
+                </button>
             </div>
 
             <!-- Item 2 -->
             <div class="menu-card">
-                <div class="menu-image coffee-two">☕</div>
-
-                <div class="menu-info">
-                    <h3>Caramel Latte</h3>
-                    <p>Smooth coffee with steamed milk and caramel.</p>
-
-                    <div class="menu-bottom">
-                        <strong>₦4,000</strong>
-                        <button onclick="addToCart('Caramel Latte', 4000)">
-                            Add +
-                        </button>
-                    </div>
-                </div>
+                <div class="food-icon">☕</div>
+                <h3>Caramel Latte</h3>
+                <p>Smooth espresso, milk and delicious caramel.</p>
+                <span class="price">₦4,000</span>
+                <button class="order-btn"
+                    onclick="addToCart('Caramel Latte', 4000)">
+                    Add to Order
+                </button>
             </div>
 
             <!-- Item 3 -->
             <div class="menu-card">
-                <div class="menu-image coffee-three">🧋</div>
-
-                <div class="menu-info">
-                    <h3>Iced Mocha</h3>
-                    <p>Cold chocolate coffee served over ice.</p>
-
-                    <div class="menu-bottom">
-                        <strong>₦4,500</strong>
-                        <button onclick="addToCart('Iced Mocha', 4500)">
-                            Add +
-                        </button>
-                    </div>
-                </div>
+                <div class="food-icon">🍫</div>
+                <h3>Mocha</h3>
+                <p>Espresso blended with chocolate and steamed milk.</p>
+                <span class="price">₦4,200</span>
+                <button class="order-btn"
+                    onclick="addToCart('Mocha', 4200)">
+                    Add to Order
+                </button>
             </div>
 
             <!-- Item 4 -->
             <div class="menu-card">
-                <div class="menu-image coffee-four">🍵</div>
-
-                <div class="menu-info">
-                    <h3>Vanilla Latte</h3>
-                    <p>Espresso blended with milk and sweet vanilla.</p>
-
-                    <div class="menu-bottom">
-                        <strong>₦3,800</strong>
-                        <button onclick="addToCart('Vanilla Latte', 3800)">
-                            Add +
-                        </button>
-                    </div>
-                </div>
+                <div class="food-icon">🥐</div>
+                <h3>Butter Croissant</h3>
+                <p>Freshly baked, crispy and buttery French pastry.</p>
+                <span class="price">₦2,500</span>
+                <button class="order-btn"
+                    onclick="addToCart('Butter Croissant', 2500)">
+                    Add to Order
+                </button>
             </div>
 
             <!-- Item 5 -->
             <div class="menu-card">
-                <div class="menu-image coffee-five">🥐</div>
-
-                <div class="menu-info">
-                    <h3>Butter Croissant</h3>
-                    <p>Fresh, flaky and buttery French-style pastry.</p>
-
-                    <div class="menu-bottom">
-                        <strong>₦2,500</strong>
-                        <button onclick="addToCart('Butter Croissant', 2500)">
-                            Add +
-                        </button>
-                    </div>
-                </div>
+                <div class="food-icon">🍰</div>
+                <h3>Chocolate Cake</h3>
+                <p>Soft chocolate cake with rich chocolate frosting.</p>
+                <span class="price">₦4,500</span>
+                <button class="order-btn"
+                    onclick="addToCart('Chocolate Cake', 4500)">
+                    Add to Order
+                </button>
             </div>
 
             <!-- Item 6 -->
             <div class="menu-card">
-                <div class="menu-image coffee-six">🍰</div>
-
-                <div class="menu-info">
-                    <h3>Chocolate Cake</h3>
-                    <p>Soft chocolate cake with rich chocolate cream.</p>
-
-                    <div class="menu-bottom">
-                        <strong>₦4,500</strong>
-                        <button onclick="addToCart('Chocolate Cake', 4500)">
-                            Add +
-                        </button>
-                    </div>
-                </div>
+                <div class="food-icon">🥪</div>
+                <h3>Chicken Sandwich</h3>
+                <p>Grilled chicken, fresh vegetables and special sauce.</p>
+                <span class="price">₦5,000</span>
+                <button class="order-btn"
+                    onclick="addToCart('Chicken Sandwich', 5000)">
+                    Add to Order
+                </button>
             </div>
 
             <!-- Item 7 -->
             <div class="menu-card">
-                <div class="menu-image coffee-seven">🍪</div>
-
-                <div class="menu-info">
-                    <h3>Chocolate Cookie</h3>
-                    <p>Warm cookie packed with delicious chocolate chips.</p>
-
-                    <div class="menu-bottom">
-                        <strong>₦2,000</strong>
-                        <button onclick="addToCart('Chocolate Cookie', 2000)">
-                            Add +
-                        </button>
-                    </div>
-                </div>
+                <div class="food-icon">🧋</div>
+                <h3>Iced Coffee</h3>
+                <p>Cold coffee served with ice and smooth milk.</p>
+                <span class="price">₦3,800</span>
+                <button class="order-btn"
+                    onclick="addToCart('Iced Coffee', 3800)">
+                    Add to Order
+                </button>
             </div>
 
             <!-- Item 8 -->
             <div class="menu-card">
-                <div class="menu-image coffee-eight">🥪</div>
+                <div class="food-icon">🍵</div>
+                <h3>Green Tea</h3>
+                <p>Refreshing green tea served hot or chilled.</p>
+                <span class="price">₦2,500</span>
+                <button class="order-btn"
+                    onclick="addToCart('Green Tea', 2500)">
+                    Add to Order
+                </button>
+            </div>
 
-                <div class="menu-info">
-                    <h3>Jesse's Club Sandwich</h3>
-                    <p>Fresh bread, chicken, cheese, lettuce and tomatoes.</p>
+            <!-- Item 9 -->
+            <div class="menu-card">
+                <div class="food-icon">🍓</div>
+                <h3>Strawberry Smoothie</h3>
+                <p>Fresh strawberries blended into a creamy smoothie.</p>
+                <span class="price">₦4,500</span>
+                <button class="order-btn"
+                    onclick="addToCart('Strawberry Smoothie', 4500)">
+                    Add to Order
+                </button>
+            </div>
 
-                    <div class="menu-bottom">
-                        <strong>₦5,500</strong>
-                        <button onclick="addToCart('Jesse Club Sandwich', 5500)">
-                            Add +
-                        </button>
-                    </div>
+            <!-- Item 10 -->
+            <div class="menu-card">
+                <div class="food-icon">🍪</div>
+                <h3>Chocolate Cookies</h3>
+                <p>Freshly baked cookies with chocolate chips.</p>
+                <span class="price">₦2,000</span>
+                <button class="order-btn"
+                    onclick="addToCart('Chocolate Cookies', 2000)">
+                    Add to Order
+                </button>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Shopping Cart -->
+    <section class="cart-section section" id="cart">
+
+        <p class="section-label">YOUR ORDER</p>
+
+        <h2>Shopping Cart 🛒</h2>
+
+        <div id="cart-items">
+            <p class="empty-cart">Your cart is empty.</p>
+        </div>
+
+        <div class="cart-total">
+            <strong>Total:</strong>
+            <span id="cart-total">₦0</span>
+        </div>
+
+        <button class="btn" onclick="goToPayment()">
+            Continue to Payment
+        </button>
+
+    </section>
+
+
+    <!-- Rating -->
+    <section class="rating-section section" id="reviews">
+
+        <p class="section-label">CUSTOMER REVIEWS</p>
+
+        <h2>Rate Jesse's Coffee</h2>
+
+        <p>How would you rate your experience?</p>
+
+        <div class="rating">
+
+            <button onclick="rate(1)">★</button>
+            <button onclick="rate(2)">★</button>
+            <button onclick="rate(3)">★</button>
+            <button onclick="rate(4)">★</button>
+            <button onclick="rate(5)">★</button>
+            <button onclick="rate(6)">★</button>
+            <button onclick="rate(7)">★</button>
+            <button onclick="rate(8)">★</button>
+            <button onclick="rate(9)">★</button>
+            <button onclick="rate(10)">★</button>
+
+        </div>
+
+        <p id="rating-result">
+            Select a rating from 1 to 10.
+        </p>
+
+    </section>
+
+
+    <!-- Payment -->
+    <section class="payment-section section" id="payment">
+
+        <p class="section-label">PAYMENT</p>
+
+        <h2>Complete Your Order</h2>
+
+        <div class="payment-container">
+
+            <div class="bank-details">
+
+                <h3>Bank Transfer Details</h3>
+
+                <!-- CHANGE THESE DETAILS -->
+                <p>
+                    <strong>Bank Name:</strong>
+                    <span id="bank-name">YOUR BANK NAME</span>
+                </p>
+
+                <p>
+                    <strong>Account Name:</strong>
+                    <span id="account-name">JESSE'S COFFEE HOUSE</span>
+                </p>
+
+                <p>
+                    <strong>Account Number:</strong>
+                    <span id="account-number">0000000000</span>
+                </p>
+
+                <p>
+                    <strong>Sort Code:</strong>
+                    <span id="sort-code">000000</span>
+                </p>
+
+                <div class="payment-note">
+                    <strong>Important:</strong>
+                    After making your transfer, submit your order details
+                    below.
                 </div>
+
             </div>
 
-        </div>
-    </section>
 
+            <form id="order-form">
 
-    <!-- About Section -->
-    <section id="about" class="about-section">
+                <label for="customer-name">Your Name</label>
+                <input
+                    type="text"
+                    id="customer-name"
+                    placeholder="Enter your name"
+                    required
+                >
 
-        <div class="about-image">
-            ☕
-        </div>
+                <label for="phone">Phone Number</label>
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="Enter your phone number"
+                    required
+                >
 
-        <div class="about-text">
-            <p class="section-label">ABOUT JESSE'S</p>
+                <label for="email">Email Address</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
 
-            <h2>A Little Coffee.<br> A Lot of Happiness.</h2>
+                <label for="transfer-reference">
+                    Transfer Reference
+                </label>
 
-            <p>
-                Jesse's Coffee House is a cozy place where great coffee,
-                delicious food and friendly service come together.
-            </p>
+                <input
+                    type="text"
+                    id="transfer-reference"
+                    placeholder="Enter transfer reference"
+                    required
+                >
 
-            <p>
-                Every cup is carefully prepared using quality ingredients
-                to give you the perfect coffee experience.
-            </p>
+                <button type="submit" class="btn">
+                    Submit Order
+                </button>
 
-            <div class="features">
-                <div>☕ Fresh Coffee</div>
-                <div>🥐 Fresh Pastries</div>
-                <div>❤️ Friendly Service</div>
-                <div>🌱 Quality Ingredients</div>
-            </div>
-        </div>
-
-    </section>
-
-
-    <!-- Rating Section -->
-    <section id="rating" class="rating-section">
-
-        <div class="section-heading">
-            <p>YOUR OPINION MATTERS</p>
-            <h2>Rate Jesse's Coffee</h2>
-            <span>Give us a rating from 1 to 10.</span>
-        </div>
-
-        <div class="rating-box">
-
-            <div id="stars" class="stars">
-                <button onclick="rate(1)">★</button>
-                <button onclick="rate(2)">★</button>
-                <button onclick="rate(3)">★</button>
-                <button onclick="rate(4)">★</button>
-                <button onclick="rate(5)">★</button>
-                <button onclick="rate(6)">★</button>
-                <button onclick="rate(7)">★</button>
-                <button onclick="rate(8)">★</button>
-                <button onclick="rate(9)">★</button>
-                <button onclick="rate(10)">★</button>
-            </div>
-
-            <h3 id="rating-number">0 / 10</h3>
-
-            <p id="rating-message">
-                Click a star to rate us!
-            </p>
+            </form>
 
         </div>
 
     </section>
 
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
+    <!-- Contact -->
+    <section class="contact section">
 
-        <div>
-            <p class="section-label">GET IN TOUCH</p>
-            <h2>Come Have A Coffee With Us</h2>
-            <p>
-                We would love to serve you at Jesse's Coffee House.
-            </p>
-        </div>
+        <p class="section-label">CONTACT</p>
 
-        <div class="contact-details">
-            <p>📍 Lagos, Nigeria</p>
-            <p>📞 +234 800 123 4567</p>
-            <p>✉️ hello@jessescoffee.com</p>
-        </div>
+        <h2>Visit Jesse's Coffee House</h2>
+
+        <p>📍 Lagos, Nigeria</p>
+        <p>📞 +234 800 000 0000</p>
+        <p>📧 hello@jessescoffee.com</p>
 
     </section>
 
 
     <!-- Footer -->
     <footer>
-        <p>© 2026 Jesse's Coffee House. All Rights Reserved.</p>
-        <p>Made with ☕ by Jesse</p>
+
+        <h3>☕ Jesse's Coffee House</h3>
+
+        <p>
+            Made with ❤️ by Jesse
+        </p>
+
+        <p>
+            © 2026 Jesse's Coffee House. All Rights Reserved.
+        </p>
+
     </footer>
 
 
-    <!-- Shopping Cart -->
-    <div id="cart-modal" class="cart-modal">
-
-        <div class="cart-content">
-
-            <button class="close-cart" onclick="closeCart()">×</button>
-
-            <h2>Your Order 🛒</h2>
-
-            <div id="cart-items">
-                <p class="empty-cart">Your order is empty.</p>
-            </div>
-
-            <div class="cart-total">
-                <strong>Total:</strong>
-                <strong id="cart-total">₦0</strong>
-            </div>
-
-            <button class="checkout-button" onclick="checkout()">
-                Place Order
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- External JavaScript -->
+    <!-- JavaScript -->
     <script src="script.js"></script>
 
 </body>
